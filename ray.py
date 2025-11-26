@@ -23,6 +23,3 @@ class Ray():
     
     def get_path(self) -> list[tuple[float, float]]:
         return [(s.x, s.r) for s in self.states]
-
-
-

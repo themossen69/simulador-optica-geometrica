@@ -7,10 +7,13 @@ SCREEN_HEIGHT = 600
 
 if __name__ == "__main__":
     sm = ScreenManager(SCREEN_WIDTH, SCREEN_HEIGHT)
-    ray = Ray(SCREEN_HEIGHT/2, 0, 0)
+    ray = Ray(0.0, 0.2, 0.0)
     sm.add_ray(ray)  # Example ray
 
-    sm.add_element(FreeSpace(2.0))
+    dist_window = sm.transform.screen_to_world(SCREEN_WIDTH, 0)[0]
+     # Add optical elements
+
+    sm.add_element(FreeSpace(dist_window))
 
     sm.propagate_all()
 

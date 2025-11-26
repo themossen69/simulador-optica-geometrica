@@ -9,3 +9,9 @@ class CoordinateTransformer:
         screen_x = int(x * self.scale)
         screen_y = int(self.screen_height / 2 - r * self.scale)
         return screen_x, screen_y
+    
+    def screen_to_world(self, screen_x: int, screen_y: int) -> tuple[float, float]:
+        """Convert screen (x,y) coordinates to fisical (x, r) coordinates."""
+        x = screen_x / self.scale
+        r = (self.screen_height / 2 - screen_y) / self.scale
+        return x, r
